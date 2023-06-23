@@ -19,7 +19,7 @@ public class HeroSelectScreen : MonoBehaviour
     private HeroSettings CurrentHero => _heroes[_currentHeroIndex];
     private HeroSettings[] _heroes;
     private int _currentHeroIndex;
-   
+    private int _selectHeroIndex;
     private Texture _texture;
 
     private Wallet _wallet;
@@ -48,8 +48,8 @@ public class HeroSelectScreen : MonoBehaviour
     [UsedImplicitly]
     public void SelectHero()
     {
-        
-         _onHeroSelected?.Invoke(_currentHeroIndex);
+        _selectHeroIndex = _currentHeroIndex;
+         _onHeroSelected?.Invoke(_selectHeroIndex);
        //  _texture = Camera.main.targetTexture;
     }
 
@@ -91,5 +91,10 @@ public class HeroSelectScreen : MonoBehaviour
     public Texture GetTexture()
     {
         return Camera.main.targetTexture;
+    }
+
+    public int GetSelectHeroIndex()
+    {
+        return _selectHeroIndex;
     }
 }

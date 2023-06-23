@@ -6,9 +6,7 @@ public class LobbyMainScreen : MonoBehaviour
 {
     [SerializeField] 
     private HeroView _heroView;
-    [SerializeField]
-    private HeroSelectScreen _heroSelectScreen;
-    public void Show(int heroIndex, HeroSettings[] heroes)
+     public void Show(int heroIndex, HeroSettings[] heroes)
     {
         _heroView.Show(heroes[heroIndex]);
     }

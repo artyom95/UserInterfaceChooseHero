@@ -13,7 +13,7 @@ public class LobbyController : MonoBehaviour
    [SerializeField] private HeroSelectScreen _heroSelectScreen;
 
    private int _currentHeroIndex = 0;
-   private int _SelectHeroIndex = 0;
+   private int _selectHeroIndex = 0;
 
   private void Awake()
   {
@@ -24,17 +24,18 @@ public class LobbyController : MonoBehaviour
 
   public void ShowLobbyScreen()
   {
-      _lobbyMainScreen.Show(_currentHeroIndex, _gameSettings.HeroStSettingsArray);
+      _lobbyMainScreen.Show(_selectHeroIndex, _gameSettings.HeroStSettingsArray);
   }
 
    [UsedImplicitly]
    public void ShowSelectScreen()
    {
-      _heroSelectScreen.Show(_currentHeroIndex,_gameSettings.HeroStSettingsArray, _wallet, OnHeroSelected);
+      _heroSelectScreen.Show(_selectHeroIndex,_gameSettings.HeroStSettingsArray, _wallet, OnHeroSelected);
    }
 
    private void OnHeroSelected(int heroIndex)
    {
+       _selectHeroIndex = _heroSelectScreen.GetSelectHeroIndex();
        _currentHeroIndex = heroIndex;
    }
 
